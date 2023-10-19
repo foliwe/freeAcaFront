@@ -11,13 +11,13 @@
 <body x-data="{openMenu: false}">
 
   <header class="bg-white drop-shadow-sm">
-
+    <!-- wrapper -->
     <div class="flex justify-between container mx-auto py-3 px-6 items-center">
 
       <!-- logo -->
       <a href="/"><img src="/dist/images/logo.png" alt="" width="60"></a>
       <!-- Mobile menu Toogle -->
-      <button class="md:hidden" @click="openMenu = !openMenu">
+      <button class="md:hidden" @click="openMenu = !openMenu" :aria-expanded="openMenu">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
           class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
@@ -36,9 +36,12 @@
   </header>
 
   <!-- Pop Out Navigation -->
-  <nav class="fixed top-0 right-0 left-0 bottom-0 backdrop-blur-sm z-10" :hidden="!openMenu">
+  <nav class="fixed top-0 right-0 left-0 bottom-0 backdrop-blur-sm  z-10 " :class="openMenu ? 'visible':'invisible'"
+    x-cloak>
 
-    <ul class="absolute top-0 right-0 bottom-0 w-10/12 py-4 bg-white drop-shadow-2xl text-xl z-10">
+    <ul
+      class="absolute top-0 right-0 bottom-0 w-10/12 py-4 bg-white drop-shadow-2xl text-xl z-10 transition-all ease-in-out"
+      :class="openMenu ? 'translate-x-0' : 'translate-x-full'">
       <li class="border-b border-inherit"><a href="" class="block p-4">Home</a></li>
       <li class="border-b border-inherit"><a href="" class="block p-4">About Us</a></li>
       <li class="border-b border-inherit"><a href="" class="block p-4">Courses</a></li>
