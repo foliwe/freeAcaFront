@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="output.css" rel="stylesheet" />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body x-data="{openMenu: false}">
+
+  <header class="bg-white drop-shadow-sm">
+
+    <div class="flex justify-between container mx-auto py-3 px-6 items-center">
+
+      <!-- logo -->
+      <a href="/"><img src="/dist/images/logo.png" alt="" width="60"></a>
+      <!-- Mobile menu Toogle -->
+      <button class="md:hidden" @click="openMenu = !openMenu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+        </svg>
+      </button>
+      <!-- desktop Menu -->
+      <nav class="hidden md:flex">
+        <ul class="flex gap-5 text-lg">
+          <li><a class="hover:border-b py-3" href="#">Home</a></li>
+          <li><a class="hover:border-b py-3" href="#">About us</a></li>
+          <li><a class="hover:border-b py-3" href="#">Course</a></li>
+          <li><a class="hover:border-b py-3" href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Pop Out Navigation -->
+  <nav class="fixed top-0 right-0 left-0 bottom-0 backdrop-blur-sm z-10" :hidden="!openMenu">
+
+    <ul class="absolute top-0 right-0 bottom-0 w-10/12 py-4 bg-white drop-shadow-2xl text-xl z-10">
+      <li class="border-b border-inherit"><a href="" class="block p-4">Home</a></li>
+      <li class="border-b border-inherit"><a href="" class="block p-4">About Us</a></li>
+      <li class="border-b border-inherit"><a href="" class="block p-4">Courses</a></li>
+      <li class="border-b border-inherit"><a href="" class="block p-4">Contact</a></li>
+    </ul>
+
+    <button class="absolute top-0 bottom-0 right-0 left-0" @click="openMenu = !openMenu">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-8 h-8 absolute top-2 left-2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+
+    </button>
+  </nav>
+
+  <section class="hero">
+    <div class=""></div>
+  </section>
+</body>
+
+</html>
